@@ -33,10 +33,9 @@ call plug#end()
 
 " Configure CTRLP to ignore files
 
-let g:indent_guides_enable_on_vim_startup = 1
 let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
 let g:ctrlp_dont_split = 'NERD'
-let g:indentLine_color_term = 239
+let g:ctrlp_split_window = 1 " <CR> = New Tab
 
 " Configure Nerdtree
 
@@ -45,7 +44,9 @@ nmap <silent> <leader>t :NERDTreeTabsToggle<CR>
 " Configure Indent line
 
 let g:indentLine_enabled = 1
-let g:indentLine_char = '¦'
+let g:indentLine_char = '.'
+let g:indentLine_color_term = 239
+let g:indent_guides_enable_on_vim_startup = 1
 
 " => Configuration
 """"""""""""""""""""""""""""""""""""
@@ -62,6 +63,7 @@ set expandtab
 set shiftwidth=4
 set smartindent
 set autoindent
+set nowrap
 
 set number
 set showcmd
@@ -77,5 +79,3 @@ set showmatch
 
 set incsearch
 set hlsearch
-
-
