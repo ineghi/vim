@@ -28,6 +28,7 @@ Plug 'morhetz/gruvbox'
 Plug 'scrooloose/nerdcommenter'
 Plug 'yggdroot/indentline'
 Plug 'sheerun/vim-polyglot'
+Plug 'tpope/vim-fugitive'
 
 call plug#end()
 
