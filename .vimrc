@@ -1,37 +1,11 @@
 " Configuration
 """"""""""""""""""""""""""""""""""""
 ret mapleader = ','
-
-let g:molokai_original = 1
-let g:rehash256 = 1
-set background=dark
-set guifont=Menlo\ Regular:h13
-
-set tabstop=4
-set expandtab
-set shiftwidth=4
-set smartindent
-set autoindent
-set nowrap
-
-set number
-set showcmd
-set ruler
-set cursorline
-
-filetype on
-filetype indent on
-syntax on
- 
-set wildmenu
-set showmatch
-
-set incsearch
-set hlsearch
+let maplocalleader = ','
 
 " Language specific
 
-autocmd FileType markdown set wrap
+autocmd FileType markdown set wrap|set linebreak
 
 " Make delete work the same as other programs in osx 
 " sauce: https://stackoverflow.com/questions/4158312/how-can-i-fix-my-delete-key-in-vim-over-ssh-mac-os-x
@@ -72,10 +46,6 @@ Plug 'amix/vim-zenroom2'
 
 call plug#end()
 
-" Gruvbox
-
-colorscheme gruvbox
-
 " Configure CTRLP to ignore files
 
 let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
@@ -90,5 +60,34 @@ nmap <silent> <leader>t :NERDTreeTabsToggle<CR>
 
 let g:indentLine_enabled = 1
 let g:indentLine_char = '.'
-let g:indentLine_color_term = 239
 let g:indent_guides_enable_on_vim_startup = 1
+
+" Global Communication
+
+syntax enable
+set background=dark
+colorscheme gruvbox
+set guifont=Menlo\ Regular:h13
+
+set tabstop=4
+set expandtab
+set shiftwidth=4
+set smartindent
+set autoindent
+set nowrap
+
+set number
+set showcmd
+set ruler
+set cursorline
+
+filetype on
+filetype indent on
+syntax on
+ 
+set wildmenu
+set showmatch
+
+set incsearch
+set hlsearch
+
