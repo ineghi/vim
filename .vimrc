@@ -1,4 +1,4 @@
-" Confuguration
+" Configuration
 """"""""""""""""""""""""""""""""""""
 ret mapleader = ','
 
@@ -31,9 +31,10 @@ set hlsearch
 
 " Language specific
 
-autocmd FileType markdown set wrap 
+autocmd FileType markdown set wrap
 
-" Make delete work the same as other programs in osx => https://stackoverflow.com/questions/4158312/how-can-i-fix-my-delete-key-in-vim-over-ssh-mac-os-x
+" Make delete work the same as other programs in osx 
+" sauce: https://stackoverflow.com/questions/4158312/how-can-i-fix-my-delete-key-in-vim-over-ssh-mac-os-x
 
 if has('macunix')
     set backspace=indent,eol,start
