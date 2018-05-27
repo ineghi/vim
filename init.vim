@@ -3,6 +3,11 @@
 let mapleader = ','
 let maplocalleader = ','
 
+" Replace ESC behavior
+
+:imap jk <Esc>
+:imap kj <Esc>
+
 " Language specific
 
 autocmd FileType markdown set wrap|set linebreak
@@ -36,7 +41,6 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'scrooloose/nerdtree'
 Plug 'jistr/vim-nerdtree-tabs'
-Plug 'morhetz/gruvbox'
 Plug 'scrooloose/nerdcommenter'
 Plug 'yggdroot/indentline'
 Plug 'sheerun/vim-polyglot'
@@ -70,7 +74,7 @@ set termguicolors
 syntax enable
 set t_Co=256
 set background=dark
-let ayucolor="mirage"
+let ayucolor="dark"
 colorscheme ayu
 set guifont=Menlo\ Regular:h13
 "let g:two_firewatch_italics=1
