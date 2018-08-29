@@ -69,7 +69,7 @@ set termguicolors
 syntax enable
 set t_Co=256
 set background=dark
-let ayucolor="dark"
+let ayucolor="mirage"
 colorscheme ayu
 set guifont=Menlo\ Regular:h13
 "let g:two_firewatch_italics=1
