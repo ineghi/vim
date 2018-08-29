@@ -86,6 +86,7 @@ set number
 set showcmd
 set ruler
 set cursorline
+set mouse=a
 
 filetype on
 filetype indent on
