@@ -20,12 +20,11 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'jiangmiao/auto-pairs'
-Plug 'scrooloose/nerdtree'
 Plug 'itchyny/lightline.vim'
-Plug 'jistr/vim-nerdtree-tabs'
-Plug 'scrooloose/nerdcommenter'
 Plug 'yggdroot/indentline'
+Plug 'scrooloose/nerdcommenter'
 Plug 'sheerun/vim-polyglot'
+Plug 'mattn/emmet-vim'
 
 " Themes
 
@@ -37,12 +36,11 @@ call plug#end()
 " Configure CTRLP to ignore files
 
 let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
-let g:ctrlp_dont_split = 'NERD'
 let g:ctrlp_split_window = 1 " <CR> = New Tab
 
-" Configure Nerdtree
+" Configure netrw
 
-nmap <silent> <leader>t :NERDTreeTabsToggle<CR>
+let g:netrw_banner = 0
 
 " Configure Indent line
 
@@ -61,7 +59,7 @@ set laststatus=2
 let g:rehash256 = 1
 set t_Co=256
 set background=dark
-set guifont=Menlo\ Regular:h13
+set encoding=UTF-8
 
 set tabstop=4
 set expandtab
