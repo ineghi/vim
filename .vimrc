@@ -20,14 +20,17 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'jiangmiao/auto-pairs'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
 Plug 'scrooloose/nerdtree'
+Plug 'itchyny/lightline.vim'
 Plug 'jistr/vim-nerdtree-tabs'
-Plug 'morhetz/gruvbox'
 Plug 'scrooloose/nerdcommenter'
 Plug 'yggdroot/indentline'
 Plug 'sheerun/vim-polyglot'
+
+" Themes
+
+Plug 'morhetz/gruvbox'
+Plug 'tjammer/blayu', { 'as': 'blayu' }
 
 call plug#end()
 
@@ -51,12 +54,14 @@ let g:indent_guides_enable_on_vim_startup = 1
 " => Configuration
 """"""""""""""""""""""""""""""""""""
 
-colorscheme gruvbox
-let g:molokai_original = 1
+set termguicolors
+colorscheme blayu
+let g:lightline = { 'colorscheme': 'blayu' }
+set laststatus=2
 let g:rehash256 = 1
+set t_Co=256
 set background=dark
 set guifont=Menlo\ Regular:h13
-
 
 set tabstop=4
 set expandtab
