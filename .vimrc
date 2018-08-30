@@ -25,6 +25,7 @@ Plug 'yggdroot/indentline'
 Plug 'scrooloose/nerdcommenter'
 Plug 'sheerun/vim-polyglot'
 Plug 'mattn/emmet-vim'
+Plug 'tpope/vim-fugitive'
 
 " Themes
 
@@ -42,6 +43,20 @@ let g:ctrlp_split_window = 1 " <CR> = New Tab
 
 let g:netrw_banner = 0
 
+" Configure lightline
+
+let g:lightline = {
+            \   'colorscheme': 'blayu',
+            \    'active': {
+            \     'left':[ [ 'mode', 'paste' ],
+            \              [ 'gitbranch', 'readonly', 'filename', 'modified' ]
+            \     ]
+            \   },
+            \   'component_function': {
+            \     'gitbranch': 'fugitive#head',
+            \   }
+            \ }
+
 " Configure Indent line
 
 let g:indentLine_enabled = 1
@@ -54,7 +69,6 @@ let g:indent_guides_enable_on_vim_startup = 1
 
 set termguicolors
 colorscheme blayu
-let g:lightline = { 'colorscheme': 'blayu' }
 set laststatus=2
 let g:rehash256 = 1
 set t_Co=256
@@ -66,6 +80,7 @@ set expandtab
 set shiftwidth=4
 set smartindent
 set autoindent
+set backspace=indent,eol,start
 
 set number
 set showcmd
