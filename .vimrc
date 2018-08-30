@@ -26,6 +26,7 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'sheerun/vim-polyglot'
 Plug 'mattn/emmet-vim'
 Plug 'tpope/vim-fugitive'
+Plug 'terryma/vim-multiple-cursors'
 
 " Themes
 
