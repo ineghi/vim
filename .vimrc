@@ -58,6 +58,12 @@ let g:lightline = {
             \   }
             \ }
 
+" Configure emmet
+
+let g:user_emmet_install_global = 0
+autocmd FileType html,css EmmetInstall
+imap <expr> <tab> emmet#expandAbbrIntelligent("\<tab>")
+
 " Configure Indent line
 
 let g:indentLine_enabled = 1
