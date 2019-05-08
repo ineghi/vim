@@ -30,7 +30,6 @@ Plug 'terryma/vim-multiple-cursors'
 
 " Themes
 
-Plug 'morhetz/gruvbox'
 Plug 'tjammer/blayu', { 'as': 'blayu' }
 
 call plug#end()
@@ -73,14 +72,13 @@ let g:indent_guides_enable_on_vim_startup = 1
 
 " => Configuration
 """"""""""""""""""""""""""""""""""""
-
 set termguicolors
-colorscheme blayu
+set background=dark
 set laststatus=2
 let g:rehash256 = 1
 set t_Co=256
-set background=dark
 set encoding=UTF-8
+colorscheme blayu
 
 set tabstop=4
 set expandtab
