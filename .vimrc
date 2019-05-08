@@ -20,17 +20,24 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'jiangmiao/auto-pairs'
-Plug 'itchyny/lightline.vim'
 Plug 'yggdroot/indentline'
 Plug 'scrooloose/nerdcommenter'
 Plug 'sheerun/vim-polyglot'
 Plug 'mattn/emmet-vim'
 Plug 'tpope/vim-fugitive'
-Plug 'terryma/vim-multiple-cursors'
+Plug 'w0rp/ale'
+Plug 'godlygeek/tabular'
+Plug 'gregsexton/matchtag'
+Plug 'alvan/vim-closetag'
+Plug 'pangloss/vim-javascript'
+Plug 'mxw/vim-jsx'
+Plug 'kana/vim-arpeggio'
+Plug 'scrooloose/nerdtree'
+Plug 'itchyny/lightline.vim'
 
 " Themes
 
-Plug 'tjammer/blayu', { 'as': 'blayu' }
+Plug 'lifepillar/vim-solarized8'
 
 call plug#end()
 
@@ -42,20 +49,6 @@ let g:ctrlp_split_window = 1 " <CR> = New Tab
 " Configure netrw
 
 let g:netrw_banner = 0
-
-" Configure lightline
-
-let g:lightline = {
-            \   'colorscheme': 'blayu',
-            \    'active': {
-            \     'left':[ [ 'mode', 'paste' ],
-            \              [ 'gitbranch', 'readonly', 'filename', 'modified' ]
-            \     ]
-            \   },
-            \   'component_function': {
-            \     'gitbranch': 'fugitive#head',
-            \   }
-            \ }
 
 " Configure emmet
 
@@ -70,16 +63,29 @@ let g:indentLine_char = '.'
 let g:indentLine_color_term = 239
 let g:indent_guides_enable_on_vim_startup = 1
 
+" Configure Arpeggio
+
+call arpeggio#map('i', '', 0, 'jk', '<Esc>')
+
+" Configure Nerdtree
+
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | exe 'cd '.argv()[0] | endif
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+let g:NERDTreeDirArrowExpandable = '~'
+let g:NERDTreeDirArrowCollapsible = '~'
+map <C-n> :NERDTreeToggle<CR>
+
 " => Configuration
 """"""""""""""""""""""""""""""""""""
-set termguicolors
-set background=dark
-set laststatus=2
-let g:rehash256 = 1
+syntax enable
+" set termguicolors
 set t_Co=256
-set encoding=UTF-8
-colorscheme blayu
+set background=dark
+colorscheme solarized8
 
+set encoding=UTF-8
+set laststatus=2
 set tabstop=4
 set expandtab
 set shiftwidth=4
@@ -95,7 +101,6 @@ set mouse=a
 
 filetype on
 filetype indent on
-syntax on
  
 set wildmenu
 set showmatch
