@@ -32,12 +32,14 @@ Plug 'alvan/vim-closetag'
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
 Plug 'kana/vim-arpeggio'
-Plug 'scrooloose/nerdtree'
-Plug 'itchyny/lightline.vim'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'airblade/vim-gitgutter'
 
 " Themes
 
 Plug 'lifepillar/vim-solarized8'
+Plug 'ayu-theme/ayu-vim'
 
 call plug#end()
 
@@ -45,6 +47,9 @@ call plug#end()
 
 let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
 let g:ctrlp_split_window = 1 " <CR> = New Tab
+
+" Configure airline
+let g:airline_theme='ayu'
 
 " Configure netrw
 
@@ -54,7 +59,11 @@ let g:netrw_banner = 0
 
 let g:user_emmet_install_global = 0
 autocmd FileType html,css EmmetInstall
-imap <expr> <tab> emmet#expandAbbrIntelligent("\<tab>")
+autocmd FileType html,css imap <expr> <tab> emmet#expandAbbrIntelligent("\<tab>")
+
+" Configure Ale
+
+let g:ale_completion_enabled = 1
 
 " Configure Indent line
 
@@ -67,22 +76,16 @@ let g:indent_guides_enable_on_vim_startup = 1
 
 call arpeggio#map('i', '', 0, 'jk', '<Esc>')
 
-" Configure Nerdtree
-
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | exe 'cd '.argv()[0] | endif
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-let g:NERDTreeDirArrowExpandable = '~'
-let g:NERDTreeDirArrowCollapsible = '~'
-map <C-n> :NERDTreeToggle<CR>
-
 " => Configuration
 """"""""""""""""""""""""""""""""""""
 syntax enable
-" set termguicolors
+if (has("termguicolors"))
+  set termguicolors
+endif
 set t_Co=256
 set background=dark
-colorscheme solarized8
+let ayucolor="dark"
+colorscheme ayu
 
 set encoding=UTF-8
 set laststatus=2
@@ -108,4 +111,5 @@ set showmatch
 set incsearch
 set hlsearch
 
-
+" turn off auto wrapping
+:set wrap!
