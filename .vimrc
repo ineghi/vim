@@ -86,7 +86,6 @@ let g:fzf_history_dir = '~/.local/share/fzf-history'
 let g:airline_theme='ayu'
 
 " Configure netrw
-
 let g:netrw_banner = 0
 
 " Configure emmet
@@ -98,6 +97,10 @@ autocmd FileType html,css imap <expr> <tab> emmet#expandAbbrIntelligent("\<tab>"
 " Configure Ale
 
 let g:ale_completion_enabled = 1
+let g:ale_lint_on_text_changed = 1
+let g:ale_sign_column_always = 1
+let g:ale_sign_error = '•'
+let g:ale_sign_warning = '•'
 
 " Configure Indent line
 
@@ -109,6 +112,10 @@ let g:indent_guides_enable_on_vim_startup = 1
 " Configure Arpeggio
 
 call arpeggio#map('i', '', 0, 'jk', '<Esc>')
+
+" Configure FZF
+nnoremap <silent> <leader>f :FZF<cr>
+nnoremap <silent> <leader>F :FZF ~<cr>
 
 " => Configuration
 """"""""""""""""""""""""""""""""""""
