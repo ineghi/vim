@@ -60,6 +60,8 @@ let g:fzf_layout = { 'window': 'enew' }
 let g:fzf_layout = { 'window': '-tabnew' }
 let g:fzf_layout = { 'window': '10split' }
 
+nnoremap <silent> <C-p> :FZF<CR>
+
 " Customize fzf colors to match your color scheme
 let g:fzf_colors =
 \ { 'fg':      ['fg', 'Normal'],
@@ -120,7 +122,7 @@ nnoremap <silent> <leader>F :FZF ~<cr>
 " => Configuration
 """"""""""""""""""""""""""""""""""""
 syntax on
-:syntax sync fromstart
+set redrawtime=10000
 if (has("termguicolors"))
   set termguicolors
 endif
