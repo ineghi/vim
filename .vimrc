@@ -37,7 +37,7 @@ call plug#end()
 let mapleader = ","
 
 """"" clipboard
-set clipboard=unnamed,unnamedplus
+set clipboard=unnamedplus
 
 """"" zenroom
 nnoremap <silent> <leader>z :Goyo<cr>
@@ -51,7 +51,7 @@ set background=dark
 """"" ctrlp
 " Quickly find and open a file in the CWD
 let g:ctrlp_map = '<C-f>'
-map <leader>j :CtrlP<cr>
+map <leader>p :CtrlP<cr>
 map <C-b> :CtrlPBuffer<cr>
 
 " Quickly find and open a recently opened file
