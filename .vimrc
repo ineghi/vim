@@ -22,7 +22,7 @@ Plug 'amix/vim-zenroom2'
 Plug 'tpope/vim-fugitive'
 Plug 'itchyny/lightline.vim'
 Plug 'neoclide/coc.nvim'
-Plug 'sheerun/vim-polyglot'
+Plug 'preservim/nerdtree'
 
 " Themes
 Plug 'pineapplegiant/spaceduck', { 'branch': 'main' }
@@ -34,10 +34,10 @@ call plug#end()
 " config
 """"""""""""""""""""""""""""""""""""
 """"" default leader
-let mapleader = ","
+let mapleader = " "
 
 """"" clipboard
-set clipboard=unnamedplus
+set clipboard=unnamed,unnamedplus
 
 """"" zenroom
 nnoremap <silent> <leader>z :Goyo<cr>
@@ -55,7 +55,7 @@ map <leader>p :CtrlP<cr>
 map <C-b> :CtrlPBuffer<cr>
 
 " Quickly find and open a recently opened file
-map <leader>f :MRU<CR>
+map <leader>f :CtrlPMRU<CR>
 
 " Quickly find and open a buffer
 map <leader>b :CtrlPBuffer<cr>
@@ -65,19 +65,37 @@ map <leader>nn :NERDTreeToggle<cr>
 map <leader>nb :NERDTreeFromBookmark 
 map <leader>nf :NERDTreeFind<cr>
 
+"Change default look
+let g:NERDTreeDirArrowExpandable = '+'
+let g:NERDTreeDirArrowCollapsible = '~'
+
+"Cose NERDTree when opening a file
+let NERDTreeQuitOnOpen=1
+
+"Start NERDTree when Vim is started without file arguments.
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists('s:std_in') | NERDTree | endif
+
+" Exit Vim if NERDTree is the only window remaining in the only tab.
+autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
+
+" Close the tab if NERDTree is the only window remaining in it.
+autocmd BufEnter * if winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
+
+"to open-silently file in newtab with Enter, instead of default pressing "T" (same for not silently with Tab instead of t)
+let NERDTreeMapOpenInTab='<TAB>'
+"let NERDTreeMapOpenInTabSilent='<ENTER>'
+
 """""" Buffexplorer
 map <leader>o :BufExplorer<cr>
 
 """""" Lightline
 let g:lightline = {
-      \ 'colorscheme': 'spaceduck',
-      \ }
+\ 'colorscheme': 'spaceduck',
+\ }
 
 """""" Coc
 " Set internal encoding of vim, not needed on neovim, since coc.nvim using some
-" unicode characters in the file autoload/float.vim
-set encoding=utf-8
-
 " TextEdit might fail if hidden is not set.
 set hidden
 
@@ -161,8 +179,8 @@ autocmd CursorHold * silent call CocActionAsync('highlight')
 nmap <leader>rn <Plug>(coc-rename)
 
 " Formatting selected code.
-xmap <leader>f  <Plug>(coc-format-selected)
-nmap <leader>f  <Plug>(coc-format-selected)
+xmap <leader>fo  <Plug>(coc-format-selected)
+nmap <leader>fo  <Plug>(coc-format-selected)
 
 augroup mygroup
   autocmd!
@@ -227,21 +245,21 @@ set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 
 " Mappings for CoCList
 " Show all diagnostics.
-nnoremap <silent><nowait> <space>a  :<C-u>CocList diagnostics<cr>
+"nnoremap <silent><nowait> <space>a  :<C-u>CocList diagnostics<cr>
 " Manage extensions.
-nnoremap <silent><nowait> <space>e  :<C-u>CocList extensions<cr>
+"nnoremap <silent><nowait> <space>e  :<C-u>CocList extensions<cr>
 " Show commands.
-nnoremap <silent><nowait> <space>c  :<C-u>CocList commands<cr>
+"nnoremap <silent><nowait> <space>c  :<C-u>CocList commands<cr>
 " Find symbol of current document.
-nnoremap <silent><nowait> <space>o  :<C-u>CocList outline<cr>
+"nnoremap <silent><nowait> <space>o  :<C-u>CocList outline<cr>
 " Search workspace symbols.
-nnoremap <silent><nowait> <space>s  :<C-u>CocList -I symbols<cr>
+"nnoremap <silent><nowait> <space>s  :<C-u>CocList -I symbols<cr>
 " Do default action for next item.
-nnoremap <silent><nowait> <space>j  :<C-u>CocNext<CR>
+"nnoremap <silent><nowait> <space>j  :<C-u>CocNext<CR>
 " Do default action for previous item.
-nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
+"nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list.
-nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
+"nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Maintainer:
@@ -288,7 +306,7 @@ au FocusGained,BufEnter * checktime
 
 " With a map leader it's possible to do extra key combinations
 " like <leader>w saves the current file
-let mapleader = ","
+"let mapleader = ","
 
 " Fast saving
 nmap <leader>w :w!<cr>
@@ -296,7 +314,6 @@ nmap <leader>w :w!<cr>
 " :W sudo saves the file
 " (useful for handling the permission-denied error)
 command! W execute 'w !sudo tee % > /dev/null' <bar> edit!
-
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => VIM user interface
@@ -398,7 +415,7 @@ if has("gui_running")
 endif
 
 " Set utf8 as standard encoding and en_US as the standard language
-set encoding=utf8
+set encoding=UTF-8
 
 " Use Unix as the standard file type
 set ffs=unix,dos,mac
@@ -447,8 +464,8 @@ vnoremap <silent> # :<C-u>call VisualSelection('', '')<CR>?<C-R>=@/<CR><CR>
 " => Moving around, tabs, windows and buffers
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Map <Space> to / (search) and Ctrl-<Space> to ? (backwards search)
-map <space> /
-map <C-space> ?
+"map <space> /
+"map <C-space> ?
 
 " Disable highlight when <leader><cr> is pressed
 map <silent> <leader><cr> :noh<cr>
