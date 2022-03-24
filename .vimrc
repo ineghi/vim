@@ -16,7 +16,7 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'vim-scripts/bufexplorer.zip'
 Plug 'kien/ctrlp.vim'
-Plug 'jiangmiao/auto-pairs'
+Plug 'raimondi/delimitmate'
 Plug 'junegunn/goyo.vim'
 Plug 'amix/vim-zenroom2'
 Plug 'tpope/vim-fugitive'
