@@ -54,12 +54,9 @@ let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 set background=dark
 
 """"" auto expend
-inoremap (; (<CR>);<C-c>O
-inoremap (, (<CR>),<C-c>O
-inoremap {; {<CR>};<C-c>O
-inoremap {, {<CR>},<C-c>O
-inoremap [; [<CR>];<C-c>O
-inoremap [, [<CR>],<C-c>O
+inoremap (<CR> (<CR>);<C-c>O
+inoremap {<CR> {<CR>};<C-c>O
+inoremap [<CR> [<CR>],<C-c>O
 
 """"" ctrlp
 " Quickly find and open a file in the CWD
