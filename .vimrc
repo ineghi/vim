@@ -16,7 +16,6 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'vim-scripts/bufexplorer.zip'
 Plug 'kien/ctrlp.vim'
-Plug 'raimondi/delimitmate'
 Plug 'junegunn/goyo.vim'
 Plug 'amix/vim-zenroom2'
 Plug 'tpope/vim-fugitive'
@@ -36,6 +35,12 @@ call plug#end()
 """"" default leader
 let mapleader = " "
 
+""""" Fast saving
+nmap <leader>w :w!<cr>
+
+""""" Fast quit
+nmap <leader>q :q<cr>
+
 """"" clipboard
 set clipboard=unnamed,unnamedplus
 
@@ -47,6 +52,14 @@ set termguicolors
 let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
 let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 set background=dark
+
+""""" auto expend
+inoremap (; (<CR>);<C-c>O
+inoremap (, (<CR>),<C-c>O
+inoremap {; {<CR>};<C-c>O
+inoremap {, {<CR>},<C-c>O
+inoremap [; [<CR>];<C-c>O
+inoremap [, [<CR>],<C-c>O
 
 """"" ctrlp
 " Quickly find and open a file in the CWD
