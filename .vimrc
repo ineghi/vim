@@ -44,6 +44,9 @@ nmap <leader>q :q<cr>
 """"" clipboard
 set clipboard=unnamed,unnamedplus
 
+""""" mouse click
+:set mouse=a
+
 """"" zenroom
 nnoremap <silent> <leader>z :Goyo<cr>
 
